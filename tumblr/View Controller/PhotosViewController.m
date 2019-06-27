@@ -7,16 +7,24 @@
 //
 
 #import "PhotosViewController.h"
+#import "TableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
-@interface PhotosViewController ()
+@interface PhotosViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray *posts;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation PhotosViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchPosts];
+    self.tableView.rowHeight = 240;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 
     // Do any additional setup after loading the view.
 }
@@ -33,6 +41,7 @@
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSDictionary *responseDictionary = dataDictionary[@"response"];
             self.posts = responseDictionary[@"posts"];
+            [self.tableView reloadData];
             // TODO: Get the posts and store in posts property
             // TODO: Reload the table view
         }
@@ -48,5 +57,33 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.posts.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier: @"TableViewCell"];
+    
+    NSDictionary *post = self.posts[indexPath.row];
+    NSArray *photos = post[@"photos"];
+    if (photos) {
+        // 1. Get the first photo in the photos array
+        NSDictionary *photo = photos[0];
+        
+        // 2. Get the original size dictionary from the photo
+        NSDictionary *originalSize =  photo[@"original_size"];
+        
+        // 3. Get the url string from the original size dictionary
+        NSString *urlString = originalSize[@"url"];
+        
+        // 4. Create a URL using the urlString
+        NSURL *url = [NSURL URLWithString:urlString];
+        [cell.postIm setImageWithURL:url];
+    }
+    return cell;
+}
+
 
 @end

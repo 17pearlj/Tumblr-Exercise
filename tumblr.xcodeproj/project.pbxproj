@@ -18,6 +18,7 @@
 		FFF2494E22C534440065CD79 /* tumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF2494D22C534440065CD79 /* tumblrTests.m */; };
 		FFF2495922C534440065CD79 /* tumblrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF2495822C534440065CD79 /* tumblrUITests.m */; };
 		FFF2496B22C539830065CD79 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF2496A22C539830065CD79 /* PhotosViewController.m */; };
+		FFF2496E22C5423F0065CD79 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF2496D22C5423F0065CD79 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		FFF2495A22C534440065CD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFF2496922C539830065CD79 /* PhotosViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
 		FFF2496A22C539830065CD79 /* PhotosViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
+		FFF2496C22C5423F0065CD79 /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		FFF2496D22C5423F0065CD79 /* TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 		FFF2496722C538B20065CD79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFF2496C22C5423F0065CD79 /* TableViewCell.h */,
+				FFF2496D22C5423F0065CD79 /* TableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFF2494422C534440065CD79 /* main.m in Sources */,
+				FFF2496E22C5423F0065CD79 /* TableViewCell.m in Sources */,
 				FFF2496B22C539830065CD79 /* PhotosViewController.m in Sources */,
 				FFF2493622C534440065CD79 /* AppDelegate.m in Sources */,
 			);
